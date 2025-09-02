@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         }
         //呼び出すごとに変わる
         @Override
-        protected void onDestroy() {
-            super.onDestroy();
+        protected void onStart() {
+            super.onStart();
             prefDataStore = PrefDataStore.getInstance(this);
             prefDataStore.getString("text").ifPresent(text -> binding.text.setText(text));
 
