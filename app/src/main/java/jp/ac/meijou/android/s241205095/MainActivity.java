@@ -15,6 +15,7 @@ import jp.ac.meijou.android.s241205095.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
+    private PrefDataStore prefDataStore;
 
 
     @Override
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -50,8 +51,24 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
+
+        binding.saveButton.setOnClickListener(view -> {
+            var text = binding.editTextText.getText().toString();
+            prefDataStore.setString("text", text);
+        });
+        }
+        //呼び出すごとに変わる
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+            prefDataStore = PrefDataStore.getInstance(this);
+            prefDataStore.getString("text").ifPresent(text -> binding.text.setText(text));
+
+        }
     }
 
 
 
-    }
+
