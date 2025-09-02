@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">モバイルアプリ開発A</string>
+    <string name = "text">Hello world！</string>
+    <string name = "text2">この世界へようこそ！</string>
 </resources>
