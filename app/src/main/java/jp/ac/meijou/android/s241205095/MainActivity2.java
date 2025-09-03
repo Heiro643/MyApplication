@@ -72,6 +72,7 @@ public class MainActivity2 extends AppCompatActivity {
             intent.putExtra("text", text);
             startActivity(intent);
         });
+        //戻り値あり
         binding.button20.setOnClickListener(view -> {
             var intent = new Intent(this, MainActivity4.class);
             getActivityResult.launch(intent);
