@@ -26,7 +26,7 @@ public class MainActivity7 extends AppCompatActivity {
         binding = ActivityMain7Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+//        setContentView(R.layout.activity_main7);
         connectivityManager = getSystemService(ConnectivityManager.class);
 
         var currentNetwork = connectivityManager.getActiveNetwork();
